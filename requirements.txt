@@ -1,0 +1,3 @@
+pycurl>=7.19.0
+cStringIO>=1.29.0
+readability-lxml>=0.3.0
