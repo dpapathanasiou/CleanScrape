@@ -163,8 +163,8 @@ def scrape (url, pdf_filename, pdf_page_size=PDF_PAGE_SIZE, folder=OUTPUT_FOLDER
         else:
             title = filename_prefix
             # no readability cleaning requested, so use the fetched html as-is
-            epub_source = write_file(folder, os.extsep.join([filename_prefix+'_epub', 'html']), raw_html)
-            pdf_source = write_file(folder, os.extsep.join([filename_prefix, 'html']), raw_html)
+            epub_source = write_file(folder, os.extsep.join([filename_prefix+'_epub', 'html']), to_unicode(raw_html))
+            pdf_source  = write_file(folder, os.extsep.join([filename_prefix, 'html']), to_unicode(raw_html))
 
         if epub_source:
             generate_epub (folder, filename_prefix, title,
