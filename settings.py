@@ -15,6 +15,28 @@ UA = "CleanScrape/1.0 +http://github.com/dpapathanasiou/CleanScrape"
 # Define where the converted pdf files will reside
 OUTPUT_FOLDER = '/tmp'
 
+#
+# EPUB conversion
+
+# Get and install pandoc from:
+# http://johnmacfarlane.net/pandoc/installing.html
+# and update this path accordingly
+PANDOC_PATH = '/usr/bin'
+
+EPUB_XML = Template("""<dc:title>$title</dc:title>
+<dc:language>$lang</dc:language>
+<dc:date>$date</dc:date>
+$identifier""")
+
+ISBN_XML = Template('<dc:identifier id="BookId" opf:scheme="ISBN">urn:isbn:$isbn_number</dc:identifier>')
+
+EPUB_CSS   = 'epub.css'
+EPUB_COVER = 'epub_cover.jpg'
+EPUB_LANG  = 'en-US'
+
+#
+# PDF conversion
+
 # Get and install wkhtmltopdf from:
 # http://wkhtmltopdf.org/
 # and update this path accordingly
