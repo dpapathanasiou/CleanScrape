@@ -22,7 +22,7 @@ $ pip install -r requirements.txt
 
 Edit the [settings.py](settings.py) file as necessary, to match your computer's environment.
 
-You can also create a <tt>local_settings.py</tt> file which will override anything in [settings.py](settings.py), without affected the code checked in here.
+You can also create a <tt>local_settings.py</tt> file which will override anything in [settings.py](settings.py), without affecting the code checked in here.
 
 For epub, there is a default [cover image](epub_cover.jpg) and [css file](epub.css) provided in this repo, but you can provide your own by editing the the [settings.py](settings.py) file, or overriding those definitions in a <tt>local_settings.py</tt> file.
 

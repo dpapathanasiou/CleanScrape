@@ -12,7 +12,7 @@ from string import Template
 ENCODING = 'utf-8'
 UA = "CleanScrape/1.0 +http://github.com/dpapathanasiou/CleanScrape"
 
-# Define where the converted pdf files will reside
+# Define where the converted epub and pdf files will reside
 OUTPUT_FOLDER = '/tmp'
 
 #
