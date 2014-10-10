@@ -69,4 +69,34 @@ Or inside the python shell like this:
 >>> scrape("http://chadfowler.com/blog/2014/01/26/the-magic-of-strace/", "strace", clean_it=False)                                          
 ```
 
+## Troubleshooting
 
+Some sites will resist being scraped, and even though a given url is visible in a browser, it will not work here, resulting in an error like this:
+
+```sh
+Sorry, could not read  http://someblog.com/probably/not/worth/saving/anyway/
+```
+
+When this occurs, there are two things to try:
+
+1. Change the [user agent](www.whatsmyuseragent.com/WhatsAUserAgent) 
+
+   By default, it is [this](settings.py#L13), which is a big tipoff that the page view is not a human being:
+
+   ```python
+   UA = "CleanScrape/1.0 +http://github.com/dpapathanasiou/CleanScrape"
+   ```
+   
+   So create a <tt>local_settings.py</tt> file, which redefines the <tt>UA</tt> variable to a [common user agent](http://www.whatsmyuseragent.com/CommonUserAgents) string instead, e.g.:
+   
+   ```python
+   UA = "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.8.1.6) Gecko/20070725 Firefox/2.0.0.6"
+   ```
+   
+   If that *still* doesn't work, try step 2, below.
+
+2. Save the page from the browser as HTML on your computer (on linux, <tt>/tmp</tt> is a good place for it)
+
+   Then, prefix the file folder with <tt>file://</tmp> (for example, <tt>/tmp/someblog.html</tt> becomes <tt>file:///tmp/someblog.html</tt>).
+   
+   That is a valid url pycurl can read and process.
